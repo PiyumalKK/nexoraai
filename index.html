@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora AI — Intelligent Software Solutions</title>
+    <meta name="description" content="Nexora AI builds next-generation AI-powered software that transforms businesses. From intelligent automation to predictive analytics, we make AI accessible.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%236C63FF'/><stop offset='100%25' stop-color='%2300D9FF'/></linearGradient></defs><text y='.9em' font-size='90' fill='url(%23g)'>N</text></svg>">
+</head>
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4L36 12V28L20 36L4 28V12L20 4Z" stroke="url(#logoGrad)" stroke-width="2" fill="none"/>
+                        <path d="M20 10L30 16V26L20 32L10 26V16L20 10Z" fill="url(#logoGrad)" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="4" fill="url(#logoGrad)"/>
+                        <line x1="20" y1="16" x2="20" y2="10" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                        <line x1="23.5" y1="18" x2="28" y2="14" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                        <line x1="23.5" y1="22" x2="28" y2="26" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                        <line x1="20" y1="24" x2="20" y2="30" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                        <line x1="16.5" y1="22" x2="12" y2="26" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                        <line x1="16.5" y1="18" x2="12" y2="14" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="4" y1="4" x2="36" y2="36">
+                                <stop stop-color="#6C63FF"/>
+                                <stop offset="1" stop-color="#00D9FF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">Nexora<span class="logo-ai">AI</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#tech" class="nav-link">Technology</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary btn-nav">Get Started</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-effects">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-on-scroll">
+                    <span class="badge-dot"></span>
+                    <span>Now Accepting Early Adopters</span>
+                </div>
+                <h1 class="hero-title animate-on-scroll">
+                    <span class="title-line">Building the</span>
+                    <span class="title-line title-gradient">Future with AI</span>
+                    <span class="title-line">Intelligence</span>
+                </h1>
+                <p class="hero-description animate-on-scroll">
+                    Nexora AI crafts intelligent software solutions that automate, predict, and transform. 
+                    We harness cutting-edge artificial intelligence to solve real-world business challenges.
+                </p>
+                <div class="hero-cta animate-on-scroll">
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <span>Start Your AI Journey</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#services" class="btn btn-ghost btn-lg">
+                        <span>Explore Services</span>
+                    </a>
+                </div>
+                <div class="hero-stats animate-on-scroll">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">AI Models Deployed</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="99">0</span><span class="stat-suffix">.9%</span>
+                        <span class="stat-label">Uptime Guarantee</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="10">0</span><span class="stat-suffix">x</span>
+                        <span class="stat-label">Faster Processing</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual animate-on-scroll">
+                <div class="ai-brain">
+                    <div class="brain-core">
+                        <div class="brain-ring brain-ring-1"></div>
+                        <div class="brain-ring brain-ring-2"></div>
+                        <div class="brain-ring brain-ring-3"></div>
+                        <div class="brain-center">
+                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 8L52 20V40L30 52L8 40V20L30 8Z" stroke="url(#brainGrad)" stroke-width="1.5" opacity="0.6"/>
+                                <path d="M30 15L44 23V37L30 45L16 37V23L30 15Z" stroke="url(#brainGrad)" stroke-width="1" opacity="0.4"/>
+                                <circle cx="30" cy="30" r="8" fill="url(#brainGrad)" opacity="0.8"/>
+                                <circle cx="30" cy="30" r="4" fill="#fff" opacity="0.9"/>
+                                <defs>
+                                    <linearGradient id="brainGrad" x1="8" y1="8" x2="52" y2="52">
+                                        <stop stop-color="#6C63FF"/>
+                                        <stop offset="1" stop-color="#00D9FF"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="brain-nodes">
+                        <div class="node node-1"><span>ML</span></div>
+                        <div class="node node-2"><span>NLP</span></div>
+                        <div class="node node-3"><span>CV</span></div>
+                        <div class="node node-4"><span>DL</span></div>
+                        <div class="node node-5"><span>LLM</span></div>
+                        <div class="node node-6"><span>RL</span></div>
+                    </div>
+                    <div class="brain-connections">
+                        <svg class="connection-lines" viewBox="0 0 400 400">
+                            <line x1="200" y1="200" x2="200" y2="40" class="conn-line"/>
+                            <line x1="200" y1="200" x2="340" y2="110" class="conn-line"/>
+                            <line x1="200" y1="200" x2="340" y2="290" class="conn-line"/>
+                            <line x1="200" y1="200" x2="200" y2="360" class="conn-line"/>
+                            <line x1="200" y1="200" x2="60" y2="290" class="conn-line"/>
+                            <line x1="200" y1="200" x2="60" y2="110" class="conn-line"/>
+                        </svg>
+                    </div>
+                    <div class="data-particles">
+                        <div class="data-particle dp-1"></div>
+                        <div class="data-particle dp-2"></div>
+                        <div class="data-particle dp-3"></div>
+                        <div class="data-particle dp-4"></div>
+                        <div class="data-particle dp-5"></div>
+                        <div class="data-particle dp-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual animate-on-scroll">
+                    <div class="about-image-wrapper">
+                        <div class="about-pattern"></div>
+                        <div class="about-code-block">
+                            <div class="code-header">
+                                <span class="code-dot red"></span>
+                                <span class="code-dot yellow"></span>
+                                <span class="code-dot green"></span>
+                                <span class="code-title">nexora_engine.py</span>
+                            </div>
+                            <div class="code-body">
+                                <pre><code><span class="code-keyword">class</span> <span class="code-class">NexoraEngine</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(self):
+        self.models = <span class="code-func">load_ai_models</span>()
+        self.pipeline = <span class="code-class">Pipeline</span>(
+            steps=[
+                <span class="code-string">"preprocess"</span>,
+                <span class="code-string">"analyze"</span>,
+                <span class="code-string">"predict"</span>,
+                <span class="code-string">"optimize"</span>
+            ]
+        )
+    
+    <span class="code-keyword">async def</span> <span class="code-func">transform</span>(self, data):
+        insights = <span class="code-keyword">await</span> self.pipeline
+            .<span class="code-func">run</span>(data)
+        <span class="code-keyword">return</span> <span class="code-class">Result</span>(
+            predictions=insights,
+            confidence=<span class="code-number">0.97</span>
+        )</code></pre>
+                            </div>
+                            <div class="code-cursor"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <div class="section-label animate-on-scroll">About Us</div>
+                    <h2 class="section-title animate-on-scroll">
+                        We Don't Just Build Software.<br>
+                        <span class="text-gradient">We Engineer Intelligence.</span>
+                    </h2>
+                    <p class="about-text animate-on-scroll">
+                        Founded in 2026 in Colombo, Nexora AI emerged from a simple belief: artificial intelligence should be 
+                        accessible, practical, and transformative for businesses of every size — from Sri Lanka to the world. We're not just another 
+                        tech company — we're architects of intelligent systems that learn, adapt, and evolve.
+                    </p>
+                    <p class="about-text animate-on-scroll">
+                        Our team combines deep expertise in machine learning, natural language processing, and 
+                        computer vision with a pragmatic approach to solving real business problems. Every solution 
+                        we build is designed to deliver measurable impact from day one.
+                    </p>
+                    <div class="about-features animate-on-scroll">
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Lightning Fast</h4>
+                                <p>Real-time AI inference at scale</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Enterprise Secure</h4>
+                                <p>SOC2 compliant infrastructure</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2m-9-11h2m18 0h2m-4.2-5.8-1.4 1.4M6.6 17.4l-1.4 1.4m0-12.8 1.4 1.4m10.8 10.8 1.4 1.4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Always Evolving</h4>
+                                <p>Models that improve over time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label animate-on-scroll">Our Services</div>
+                <h2 class="section-title animate-on-scroll">
+                    AI Solutions That <span class="text-gradient">Drive Results</span>
+                </h2>
+                <p class="section-subtitle animate-on-scroll">
+                    From concept to deployment, we deliver end-to-end AI solutions tailored to your business needs.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll" data-tilt>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="40" height="40" rx="8" stroke="url(#s1)" stroke-width="2" fill="none"/>
+                            <path d="M16 28L22 22L26 26L32 20" stroke="url(#s1)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="28" r="2" fill="url(#s1)"/>
+                            <circle cx="22" cy="22" r="2" fill="url(#s1)"/>
+                            <circle cx="26" cy="26" r="2" fill="url(#s1)"/>
+                            <circle cx="32" cy="20" r="2" fill="url(#s1)"/>
+                            <defs><linearGradient id="s1" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#6C63FF"/><stop offset="1" stop-color="#00D9FF"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Predictive Analytics</h3>
+                    <p class="service-desc">Transform raw data into actionable insights with our advanced predictive models. Forecast trends, identify opportunities, and make data-driven decisions with confidence.</p>
+                    <div class="service-tags">
+                        <span class="tag">Forecasting</span>
+                        <span class="tag">Pattern Recognition</span>
+                        <span class="tag">Risk Analysis</span>
+                    </div>
+                    <a href="#contact" class="service-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="service-card animate-on-scroll" data-tilt>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 8C15.2 8 8 15.2 8 24s7.2 16 16 16 16-7.2 16-16S32.8 8 24 8z" stroke="url(#s2)" stroke-width="2" fill="none"/>
+                            <path d="M18 22h12M18 26h8" stroke="url(#s2)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M14 18l-2-4M34 18l2-4M14 30l-2 4M34 30l2 4" stroke="url(#s2)" stroke-width="1.5" stroke-linecap="round"/>
+                            <defs><linearGradient id="s2" x1="8" y1="8" x2="40" y2="40"><stop stop-color="#FF6B9D"/><stop offset="1" stop-color="#C850C0"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Natural Language AI</h3>
+                    <p class="service-desc">Build intelligent conversational interfaces, automate document processing, and extract meaning from unstructured text with our NLP solutions.</p>
+                    <div class="service-tags">
+                        <span class="tag">Chatbots</span>
+                        <span class="tag">Sentiment Analysis</span>
+                        <span class="tag">Text Mining</span>
+                    </div>
+                    <a href="#contact" class="service-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="service-card animate-on-scroll" data-tilt>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="32" height="24" rx="4" stroke="url(#s3)" stroke-width="2" fill="none"/>
+                            <circle cx="24" cy="24" r="6" stroke="url(#s3)" stroke-width="2" fill="none"/>
+                            <circle cx="24" cy="24" r="2" fill="url(#s3)"/>
+                            <path d="M14 16h4M30 16h4" stroke="url(#s3)" stroke-width="1.5" stroke-linecap="round"/>
+                            <defs><linearGradient id="s3" x1="8" y1="12" x2="40" y2="36"><stop stop-color="#00D9FF"/><stop offset="1" stop-color="#00FF88"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Computer Vision</h3>
+                    <p class="service-desc">Enable machines to see and understand. From quality inspection to facial recognition, our vision systems deliver pixel-perfect accuracy.</p>
+                    <div class="service-tags">
+                        <span class="tag">Object Detection</span>
+                        <span class="tag">Image Classification</span>
+                        <span class="tag">OCR</span>
+                    </div>
+                    <a href="#contact" class="service-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="service-card animate-on-scroll" data-tilt>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 6v8M24 34v8M6 24h8M34 24h8" stroke="url(#s4)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M11 11l6 6M31 31l6 6M31 11l6-6M11 31l-6 6" stroke="url(#s4)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="24" cy="24" r="8" stroke="url(#s4)" stroke-width="2" fill="none"/>
+                            <circle cx="24" cy="24" r="3" fill="url(#s4)"/>
+                            <defs><linearGradient id="s4" x1="6" y1="6" x2="42" y2="42"><stop stop-color="#FFB347"/><stop offset="1" stop-color="#FF6B6B"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Process Automation</h3>
+                    <p class="service-desc">Streamline operations with intelligent automation. Our AI agents handle repetitive tasks, route decisions, and orchestrate complex workflows autonomously.</p>
+                    <div class="service-tags">
+                        <span class="tag">RPA</span>
+                        <span class="tag">Workflow AI</span>
+                        <span class="tag">Decision Engines</span>
+                    </div>
+                    <a href="#contact" class="service-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="service-card animate-on-scroll" data-tilt>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 24c0-8.8 7.2-16 16-16" stroke="url(#s5)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M14 24c0-5.5 4.5-10 10-10" stroke="url(#s5)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M20 24c0-2.2 1.8-4 4-4" stroke="url(#s5)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="24" cy="24" r="2" fill="url(#s5)"/>
+                            <path d="M24 40c8.8 0 16-7.2 16-16" stroke="url(#s5)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 34c5.5 0 10-4.5 10-10" stroke="url(#s5)" stroke-width="2" stroke-linecap="round"/>
+                            <defs><linearGradient id="s5" x1="8" y1="8" x2="40" y2="40"><stop stop-color="#A78BFA"/><stop offset="1" stop-color="#6C63FF"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Custom AI Models</h3>
+                    <p class="service-desc">Off-the-shelf doesn't cut it? We design, train, and deploy custom machine learning models fine-tuned to your unique data and requirements.</p>
+                    <div class="service-tags">
+                        <span class="tag">Fine-Tuning</span>
+                        <span class="tag">Transfer Learning</span>
+                        <span class="tag">MLOps</span>
+                    </div>
+                    <a href="#contact" class="service-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="service-card animate-on-scroll" data-tilt>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 8h24v32H12z" stroke="url(#s6)" stroke-width="2" fill="none" rx="2"/>
+                            <path d="M18 16h12M18 22h12M18 28h8" stroke="url(#s6)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M8 12h4M8 20h4M8 28h4M36 12h4M36 20h4M36 28h4" stroke="url(#s6)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                            <defs><linearGradient id="s6" x1="8" y1="8" x2="40" y2="40"><stop stop-color="#00FF88"/><stop offset="1" stop-color="#00D9FF"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">AI Consulting</h3>
+                    <p class="service-desc">Not sure where to start? Our AI strategists help you identify high-impact opportunities, build roadmaps, and navigate the AI landscape with clarity.</p>
+                    <div class="service-tags">
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Roadmapping</span>
+                        <span class="tag">Architecture</span>
+                    </div>
+                    <a href="#contact" class="service-link">
+                        Learn more
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="section tech-section" id="tech">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label animate-on-scroll">Our Stack</div>
+                <h2 class="section-title animate-on-scroll">
+                    Powered by <span class="text-gradient">Cutting-Edge Tech</span>
+                </h2>
+                <p class="section-subtitle animate-on-scroll">
+                    We leverage the most advanced tools and frameworks in the AI ecosystem.
+                </p>
+            </div>
+            <div class="tech-orbit animate-on-scroll">
+                <div class="orbit-center">
+                    <span class="orbit-label">Nexora<br>Core</span>
+                </div>
+                <div class="orbit-ring orbit-ring-1">
+                    <div class="orbit-item" style="--angle: 0deg;"><span>PyTorch</span></div>
+                    <div class="orbit-item" style="--angle: 90deg;"><span>TensorFlow</span></div>
+                    <div class="orbit-item" style="--angle: 180deg;"><span>Python</span></div>
+                    <div class="orbit-item" style="--angle: 270deg;"><span>CUDA</span></div>
+                </div>
+                <div class="orbit-ring orbit-ring-2">
+                    <div class="orbit-item" style="--angle: 45deg;"><span>Azure</span></div>
+                    <div class="orbit-item" style="--angle: 135deg;"><span>Docker</span></div>
+                    <div class="orbit-item" style="--angle: 225deg;"><span>K8s</span></div>
+                    <div class="orbit-item" style="--angle: 315deg;"><span>FastAPI</span></div>
+                </div>
+                <div class="orbit-ring orbit-ring-3">
+                    <div class="orbit-item" style="--angle: 20deg;"><span>GPT</span></div>
+                    <div class="orbit-item" style="--angle: 80deg;"><span>LangChain</span></div>
+                    <div class="orbit-item" style="--angle: 140deg;"><span>HuggingFace</span></div>
+                    <div class="orbit-item" style="--angle: 200deg;"><span>MLflow</span></div>
+                    <div class="orbit-item" style="--angle: 260deg;"><span>Spark</span></div>
+                    <div class="orbit-item" style="--angle: 320deg;"><span>Redis</span></div>
+                </div>
+            </div>
+            <div class="tech-stats">
+                <div class="tech-stat animate-on-scroll">
+                    <div class="tech-stat-number"><span data-count="15">0</span>+</div>
+                    <div class="tech-stat-label">AI Frameworks</div>
+                </div>
+                <div class="tech-stat animate-on-scroll">
+                    <div class="tech-stat-number"><span data-count="1">0</span>M+</div>
+                    <div class="tech-stat-label">Data Points Processed Daily</div>
+                </div>
+                <div class="tech-stat animate-on-scroll">
+                    <div class="tech-stat-number">&lt;<span data-count="100">0</span>ms</div>
+                    <div class="tech-stat-label">Average Inference Time</div>
+                </div>
+                <div class="tech-stat animate-on-scroll">
+                    <div class="tech-stat-number"><span data-count="99">0</span>%</div>
+                    <div class="tech-stat-label">Model Accuracy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label animate-on-scroll">Portfolio</div>
+                <h2 class="section-title animate-on-scroll">
+                    Projects That <span class="text-gradient">Speak Volumes</span>
+                </h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Real solutions delivering real impact across industries.
+                </p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card portfolio-card-lg animate-on-scroll">
+                    <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #6C63FF20, #00D9FF20);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Healthcare AI</span>
+                        <h3>MedPredict Pro</h3>
+                        <p>Early disease detection system using deep learning on medical imaging data. Achieved 96.7% accuracy in identifying anomalies across 12 pathology types.</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">96.7%</span>
+                                <span class="metric-label">Accuracy</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">2.3s</span>
+                                <span class="metric-label">Scan Time</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">12</span>
+                                <span class="metric-label">Pathologies</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #FF6B9D20, #C850C020);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">FinTech</span>
+                        <h3>FraudShield AI</h3>
+                        <p>Real-time transaction fraud detection processing 50K+ events/second with sub-10ms latency.</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.2%</span>
+                                <span class="metric-label">Detection</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">8ms</span>
+                                <span class="metric-label">Latency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #00FF8820, #00D9FF20);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">E-Commerce</span>
+                        <h3>SmartRec Engine</h3>
+                        <p>Hyper-personalized recommendation engine boosting conversion rates by 340% for retail clients.</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">340%</span>
+                                <span class="metric-label">Conversion Lift</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">28M</span>
+                                <span class="metric-label">Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #FFB34720, #FF6B6B20);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Manufacturing</span>
+                        <h3>VisionQC</h3>
+                        <p>Automated visual quality inspection detecting micro-defects invisible to the human eye on production lines.</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.8%</span>
+                                <span class="metric-label">Precision</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">500+</span>
+                                <span class="metric-label">Units/min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #A78BFA20, #6C63FF20);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Legal Tech</span>
+                        <h3>DocuMind</h3>
+                        <p>AI-powered legal document analysis extracting key clauses, risks, and obligations in seconds.</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">85%</span>
+                                <span class="metric-label">Time Saved</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">50K+</span>
+                                <span class="metric-label">Docs/month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label animate-on-scroll">Our Team</div>
+                <h2 class="section-title animate-on-scroll">
+                    The Minds Behind <span class="text-gradient">Nexora AI</span>
+                </h2>
+                <p class="section-subtitle animate-on-scroll">
+                    A world-class team of AI researchers, engineers, and strategists.
+                </p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder" style="background: linear-gradient(135deg, #6C63FF, #00D9FF);">
+                            <span>KP</span>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Kasun Perera</h3>
+                    <p class="team-role">CEO & Co-Founder</p>
+                    <p class="team-bio">Former ML Lead at Google Brain. MSc in AI from University of Moratuwa. Passionate about democratizing intelligence across South Asia.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder" style="background: linear-gradient(135deg, #FF6B9D, #C850C0);">
+                            <span>NF</span>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Nilusha Fernando</h3>
+                    <p class="team-role">CTO & Co-Founder</p>
+                    <p class="team-bio">Ex-Principal Engineer at OpenAI. Architected systems handling 1B+ daily predictions. IIT Colombo alumna.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder" style="background: linear-gradient(135deg, #00D9FF, #00FF88);">
+                            <span>DR</span>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Dinesh Rajapaksha</h3>
+                    <p class="team-role">Head of AI Research</p>
+                    <p class="team-bio">Published 30+ papers in NeurIPS & ICML. University of Peradeniya PhD. Specializes in transformer architectures.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder" style="background: linear-gradient(135deg, #FFB347, #FF6B6B);">
+                            <span>AS</span>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Amaya Silva</h3>
+                    <p class="team-role">VP of Engineering</p>
+                    <p class="team-bio">15 years shipping production ML systems. Built recommendation engines serving 200M+ users. UCSC Colombo graduate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label animate-on-scroll">Testimonials</div>
+                <h2 class="section-title animate-on-scroll">
+                    Trusted by <span class="text-gradient">Industry Leaders</span>
+                </h2>
+            </div>
+            <div class="testimonials-track">
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Nexora AI transformed our entire data pipeline. What used to take our team weeks now happens in real-time. The ROI was visible within the first month."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #6C63FF, #00D9FF);">RW</div>
+                        <div>
+                            <div class="author-name">Ruwan Wickramasinghe</div>
+                            <div class="author-title">CTO, MediLanka Systems</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Their fraud detection model saved us $4.2M in the first quarter alone. The Nexora team doesn't just deliver code — they deliver business outcomes."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #FF6B9D, #C850C0);">TJ</div>
+                        <div>
+                            <div class="author-name">Tharushi Jayawardena</div>
+                            <div class="author-title">VP Risk, Lanka Finance Group</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="#FFB347" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Working with Nexora feels like having an elite AI team in-house. Their recommendation engine increased our revenue by 340%. Absolutely game-changing."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #00D9FF, #00FF88);">SM</div>
+                        <div>
+                            <div class="author-name">Sachini Munasinghe</div>
+                            <div class="author-title">CEO, Kandy Bazaar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2 class="cta-title">Ready to Unlock the Power of AI?</h2>
+                <p class="cta-text">Let's discuss how Nexora AI can transform your business. Free consultation — no strings attached.</p>
+                <a href="#contact" class="btn btn-primary btn-lg btn-glow">
+                    <span>Book a Free Consultation</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label animate-on-scroll">Get In Touch</div>
+                <h2 class="section-title animate-on-scroll">
+                    Let's Build Something <span class="text-gradient">Extraordinary</span>
+                </h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Have a project in mind? We'd love to hear about it.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>mailus@nexoraai.me</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>Nexora Innovation Hub, Trace Expert City<br>Maradana, Colombo 10, Sri Lanka</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+94 77 425 8908</p>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form animate-on-scroll" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Your Company">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option value="predictive">Predictive Analytics</option>
+                            <option value="nlp">Natural Language AI</option>
+                            <option value="vision">Computer Vision</option>
+                            <option value="automation">Process Automation</option>
+                            <option value="custom">Custom AI Models</option>
+                            <option value="consulting">AI Consulting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Project</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Describe your challenge and what you're looking to achieve..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-full">
+                        <span>Send Message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4L36 12V28L20 36L4 28V12L20 4Z" stroke="url(#fLogoGrad)" stroke-width="2" fill="none"/>
+                                <circle cx="20" cy="20" r="4" fill="url(#fLogoGrad)"/>
+                                <defs><linearGradient id="fLogoGrad" x1="4" y1="4" x2="36" y2="36"><stop stop-color="#6C63FF"/><stop offset="1" stop-color="#00D9FF"/></linearGradient></defs>
+                            </svg>
+                        </div>
+                        <span class="logo-text">Nexora<span class="logo-ai">AI</span></span>
+                    </a>
+                    <p class="footer-desc">Building intelligent software solutions that automate, predict, and transform businesses worldwide.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#team">Team</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="#services">Predictive Analytics</a>
+                    <a href="#services">Natural Language AI</a>
+                    <a href="#services">Computer Vision</a>
+                    <a href="#services">AI Consulting</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="#">Twitter / X</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nexora AI. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
