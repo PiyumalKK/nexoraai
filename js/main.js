@@ -265,22 +265,29 @@
             btn.style.opacity = '0.7';
 
             // Send via FormSubmit.co
+            // Send via Web3Forms
             const formData = new FormData(contactForm);
-            fetch('https://formsubmit.co/ajax/mailus@nexoraai.me', {
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.json())
             .then(data => {
-                btn.innerHTML = `
-                    <span>Message Sent!</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                `;
-                btn.style.background = 'linear-gradient(135deg, #00FF88, #00D9FF)';
-                btn.style.opacity = '1';
-                contactForm.reset();
+                if (data.success) {
+                    btn.innerHTML = `
+                        <span>Message Sent!</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    `;
+                    btn.style.background = 'linear-gradient(135deg, #00FF88, #00D9FF)';
+                    btn.style.opacity = '1';
+                    contactForm.reset();
+                } else {
+                    btn.innerHTML = `<span>Failed — try again</span>`;
+                    btn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+                    btn.style.opacity = '1';
+                }
                 setTimeout(() => {
                     btn.innerHTML = originalHTML;
                     btn.disabled = false;

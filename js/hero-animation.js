@@ -35,10 +35,10 @@
 
     // --- Neural Network Nodes ---
     const layers = [
-        { count: 5, radius: 185, speed: 0.08, size: 4, color: cPurple, opacity: 0.4 },
-        { count: 8, radius: 145, speed: -0.12, size: 5, color: cCyan, opacity: 0.5 },
-        { count: 6, radius: 100, speed: 0.18, size: 4.5, color: cPurple, opacity: 0.55 },
-        { count: 4, radius: 55, speed: -0.25, size: 6, color: cCyan, opacity: 0.65 },
+        { count: 5, radius: 140, speed: 0.08, size: 4, color: cPurple, opacity: 0.4 },
+        { count: 8, radius: 110, speed: -0.12, size: 5, color: cCyan, opacity: 0.5 },
+        { count: 6, radius: 75, speed: 0.18, size: 4.5, color: cPurple, opacity: 0.55 },
+        { count: 4, radius: 42, speed: -0.25, size: 6, color: cCyan, opacity: 0.65 },
     ];
 
     const nodes = [];
@@ -81,7 +81,7 @@
     for (let i = 0; i < 18; i++) {
         sparks.push({
             angle: Math.random() * Math.PI * 2,
-            radius: 60 + Math.random() * 160,
+            radius: 45 + Math.random() * 120,
             speed: (Math.random() - 0.5) * 0.15,
             size: Math.random() * 1 + 0.2,
             opacity: Math.random() * 0.12 + 0.03,
@@ -97,7 +97,7 @@
         labelNodes.push({
             text: labels[i],
             angle: angle,
-            radius: 215,
+            radius: 190,
             size: 26,
         });
     }
@@ -133,7 +133,7 @@
         ctx.translate(cx, cy);
         ctx.rotate(t * 0.02);
         for (let ring = 1; ring <= 4; ring++) {
-            const r = ring * 55;
+            const r = ring * 40;
             ctx.strokeStyle = `rgba(108, 99, 255, ${0.04 / ring})`;
             ctx.lineWidth = 0.5;
             drawHexagon(0, 0, r, t * 0.01 * (ring % 2 === 0 ? 1 : -1));
@@ -166,8 +166,8 @@
                 const dx = nodes[i].x - nodes[j].x;
                 const dy = nodes[i].y - nodes[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 130) {
-                    const alpha = (1 - dist / 130) * 0.12;
+                if (dist < 100) {
+                    const alpha = (1 - dist / 100) * 0.12;
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
                     ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -242,21 +242,21 @@
         });
 
         // Center core
-        const coreGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 35);
+        const coreGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 28);
         const corePulse = 0.6 + Math.sin(t * 1.5) * 0.2;
         coreGlow.addColorStop(0, `rgba(108, 99, 255, ${corePulse})`);
         coreGlow.addColorStop(0.3, `rgba(0, 217, 255, ${corePulse * 0.4})`);
         coreGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
         ctx.fillStyle = coreGlow;
         ctx.beginPath();
-        ctx.arc(cx, cy, 35, 0, Math.PI * 2);
+        ctx.arc(cx, cy, 28, 0, Math.PI * 2);
         ctx.fill();
 
         // Inner hexagon
         ctx.save();
         ctx.translate(cx, cy);
         ctx.rotate(t * 0.3);
-        drawHexagon(0, 0, 18, 0);
+        drawHexagon(0, 0, 14, 0);
         ctx.strokeStyle = `rgba(0, 217, 255, ${0.4 + Math.sin(t * 2) * 0.15})`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
@@ -266,7 +266,7 @@
         ctx.save();
         ctx.translate(cx, cy);
         ctx.rotate(-t * 0.5);
-        drawHexagon(0, 0, 10, 0);
+        drawHexagon(0, 0, 8, 0);
         ctx.strokeStyle = `rgba(108, 99, 255, 0.5)`;
         ctx.lineWidth = 1;
         ctx.stroke();
@@ -315,7 +315,7 @@
         // Outer ring pulse
         const ringAlpha = 0.04 + Math.sin(t * 0.5) * 0.02;
         ctx.beginPath();
-        ctx.arc(cx, cy, 235, 0, Math.PI * 2);
+        ctx.arc(cx, cy, 240, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(108, 99, 255, ${ringAlpha})`;
         ctx.lineWidth = 1;
         ctx.stroke();
@@ -324,7 +324,7 @@
         const scanStart = t * 0.5;
         const scanLen = Math.PI * 0.4;
         ctx.beginPath();
-        ctx.arc(cx, cy, 235, scanStart, scanStart + scanLen);
+        ctx.arc(cx, cy, 240, scanStart, scanStart + scanLen);
         const scanGrad = ctx.createConicGradient(scanStart, cx, cy);
         scanGrad.addColorStop(0, 'rgba(0, 217, 255, 0)');
         scanGrad.addColorStop(0.06, 'rgba(0, 217, 255, 0.3)');
