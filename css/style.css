@@ -620,9 +620,8 @@ body:hover .cursor-glow {
 }
 
 #heroCanvas {
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
+    width: 560px;
+    height: 560px;
     filter: drop-shadow(0 0 40px rgba(108, 99, 255, 0.15));
 }
 
