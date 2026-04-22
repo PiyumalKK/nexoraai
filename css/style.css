@@ -612,189 +612,18 @@ body:hover .cursor-glow {
     background: var(--border-color);
 }
 
-/* Hero Visual - AI Brain */
+/* Hero Visual - AI Canvas */
 .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.ai-brain {
-    position: relative;
-    width: 400px;
-    height: 400px;
-}
-
-.brain-core {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.brain-ring {
-    position: absolute;
+#heroCanvas {
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-    border: 1px solid;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.brain-ring-1 {
-    width: 120px;
-    height: 120px;
-    border-color: rgba(108, 99, 255, 0.3);
-    animation: ringPulse 4s ease-in-out infinite;
-}
-
-.brain-ring-2 {
-    width: 180px;
-    height: 180px;
-    border-color: rgba(0, 217, 255, 0.2);
-    animation: ringPulse 4s ease-in-out infinite 0.5s;
-}
-
-.brain-ring-3 {
-    width: 240px;
-    height: 240px;
-    border-color: rgba(0, 255, 136, 0.1);
-    animation: ringPulse 4s ease-in-out infinite 1s;
-}
-
-@keyframes ringPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.6; }
-}
-
-.brain-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    animation: brainCenterGlow 3s ease-in-out infinite;
-}
-
-.brain-center svg {
-    width: 100%;
-    height: 100%;
-}
-
-@keyframes brainCenterGlow {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(108, 99, 255, 0.5)); }
-    50% { filter: drop-shadow(0 0 25px rgba(108, 99, 255, 0.8)); }
-}
-
-/* Brain Nodes */
-.brain-nodes {
-    position: absolute;
-    inset: 0;
-}
-
-.node {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-hover);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--accent-secondary);
-    animation: nodeFloat 6s ease-in-out infinite;
-    backdrop-filter: blur(10px);
-}
-
-.node-1 { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-.node-2 { top: 18%; right: 5%; animation-delay: 0.5s; }
-.node-3 { bottom: 18%; right: 5%; animation-delay: 1s; }
-.node-4 { bottom: 0; left: 50%; transform: translateX(-50%); animation-delay: 1.5s; }
-.node-5 { bottom: 18%; left: 5%; animation-delay: 2s; }
-.node-6 { top: 18%; left: 5%; animation-delay: 2.5s; }
-
-@keyframes nodeFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
-.node-1, .node-4 {
-    animation-name: nodeFloatCentered;
-}
-
-@keyframes nodeFloatCentered {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-8px); }
-}
-
-/* Brain Connections */
-.brain-connections {
-    position: absolute;
-    inset: 0;
-}
-
-.connection-lines {
-    width: 100%;
-    height: 100%;
-}
-
-.conn-line {
-    stroke: rgba(108, 99, 255, 0.15);
-    stroke-width: 1;
-    stroke-dasharray: 5 5;
-    animation: dashMove 20s linear infinite;
-}
-
-@keyframes dashMove {
-    to { stroke-dashoffset: -100; }
-}
-
-/* Data Particles */
-.data-particles {
-    position: absolute;
-    inset: 0;
-}
-
-.data-particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--accent-secondary);
-    box-shadow: 0 0 6px var(--accent-secondary);
-}
-
-.dp-1 { animation: particleOrbit1 4s linear infinite; }
-.dp-2 { animation: particleOrbit2 5s linear infinite; }
-.dp-3 { animation: particleOrbit3 6s linear infinite; }
-.dp-4 { animation: particleOrbit1 4.5s linear infinite reverse; }
-.dp-5 { animation: particleOrbit2 5.5s linear infinite reverse; }
-.dp-6 { animation: particleOrbit3 3.5s linear infinite; }
-
-@keyframes particleOrbit1 {
-    0% { top: 50%; left: 50%; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { top: 0%; left: 50%; opacity: 0; }
-}
-
-@keyframes particleOrbit2 {
-    0% { top: 50%; left: 50%; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { top: 18%; right: 5%; left: auto; opacity: 0; }
-}
-
-@keyframes particleOrbit3 {
-    0% { top: 50%; left: 50%; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { bottom: 18%; left: 5%; top: auto; opacity: 0; }
+    filter: drop-shadow(0 0 40px rgba(108, 99, 255, 0.15));
 }
 
 /* Scroll Indicator */
@@ -1160,6 +989,7 @@ body:hover .cursor-glow {
     left: 50%;
     border-radius: 50%;
     border: 1px dashed;
+    transform-origin: center;
 }
 
 .orbit-ring-1 {
@@ -1195,10 +1025,6 @@ body:hover .cursor-glow {
     position: absolute;
     width: 52px;
     height: 52px;
-    margin: -26px 0 0 -26px;
-    top: 50%;
-    left: 50%;
-    transform: rotate(var(--angle)) translateX(calc(100px)) rotate(calc(-1 * var(--angle)));
     background: var(--bg-primary);
     border: 1px solid var(--border-hover);
     border-radius: 12px;
@@ -1210,25 +1036,53 @@ body:hover .cursor-glow {
     font-weight: 600;
     color: var(--text-secondary);
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: background 0.3s, border-color 0.3s;
 }
 
+/* Position items around ring using top/left with rotation offset */
 .orbit-ring-1 .orbit-item {
-    transform: rotate(var(--angle)) translateX(100px) rotate(calc(-1 * var(--angle)));
-    animation: counterSpin 30s linear infinite;
+    top: 50%; left: 50%;
+    margin: -26px 0 0 -26px;
 }
+.orbit-ring-1 .orbit-item:nth-child(1) { top: -26px; left: calc(50% - 26px); }
+.orbit-ring-1 .orbit-item:nth-child(2) { top: calc(50% - 26px); left: calc(100% - 26px); }
+.orbit-ring-1 .orbit-item:nth-child(3) { top: calc(100% - 26px); left: calc(50% - 26px); }
+.orbit-ring-1 .orbit-item:nth-child(4) { top: calc(50% - 26px); left: -26px; }
 
 .orbit-ring-2 .orbit-item {
-    transform: rotate(var(--angle)) translateX(160px) rotate(calc(-1 * var(--angle)));
-    animation: counterSpin 45s linear infinite reverse;
+    top: 50%; left: 50%;
+    margin: -26px 0 0 -26px;
 }
+.orbit-ring-2 .orbit-item:nth-child(1) { top: 3%; left: 83%; }
+.orbit-ring-2 .orbit-item:nth-child(2) { top: 83%; left: 83%; }
+.orbit-ring-2 .orbit-item:nth-child(3) { top: 83%; left: 3%; }
+.orbit-ring-2 .orbit-item:nth-child(4) { top: 3%; left: 3%; }
 
 .orbit-ring-3 .orbit-item {
-    transform: rotate(var(--angle)) translateX(220px) rotate(calc(-1 * var(--angle)));
-    animation: counterSpin 60s linear infinite;
+    top: 50%; left: 50%;
+    margin: -26px 0 0 -26px;
 }
+.orbit-ring-3 .orbit-item:nth-child(1) { top: -2%; left: 30%; }
+.orbit-ring-3 .orbit-item:nth-child(2) { top: 15%; left: 80%; }
+.orbit-ring-3 .orbit-item:nth-child(3) { top: 55%; left: 95%; }
+.orbit-ring-3 .orbit-item:nth-child(4) { top: 85%; left: 65%; }
+.orbit-ring-3 .orbit-item:nth-child(5) { top: 85%; left: 20%; }
+.orbit-ring-3 .orbit-item:nth-child(6) { top: 40%; left: -5%; }
 
-@keyframes counterSpin {
+/* Counter-rotate items so text stays upright */
+.orbit-ring-1 .orbit-item { animation: counterSpin1 30s linear infinite; }
+.orbit-ring-2 .orbit-item { animation: counterSpin2 45s linear infinite reverse; }
+.orbit-ring-3 .orbit-item { animation: counterSpin3 60s linear infinite; }
+
+@keyframes counterSpin1 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+@keyframes counterSpin2 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes counterSpin3 {
     from { transform: rotate(0deg); }
     to { transform: rotate(-360deg); }
 }
@@ -1236,8 +1090,6 @@ body:hover .cursor-glow {
 .orbit-item:hover {
     background: rgba(108, 99, 255, 0.2);
     border-color: var(--accent-primary);
-    transform: scale(1.2);
-    z-index: 10;
 }
 
 /* Tech Stats */

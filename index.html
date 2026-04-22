@@ -97,53 +97,7 @@
                 </div>
             </div>
             <div class="hero-visual animate-on-scroll">
-                <div class="ai-brain">
-                    <div class="brain-core">
-                        <div class="brain-ring brain-ring-1"></div>
-                        <div class="brain-ring brain-ring-2"></div>
-                        <div class="brain-ring brain-ring-3"></div>
-                        <div class="brain-center">
-                            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30 8L52 20V40L30 52L8 40V20L30 8Z" stroke="url(#brainGrad)" stroke-width="1.5" opacity="0.6"/>
-                                <path d="M30 15L44 23V37L30 45L16 37V23L30 15Z" stroke="url(#brainGrad)" stroke-width="1" opacity="0.4"/>
-                                <circle cx="30" cy="30" r="8" fill="url(#brainGrad)" opacity="0.8"/>
-                                <circle cx="30" cy="30" r="4" fill="#fff" opacity="0.9"/>
-                                <defs>
-                                    <linearGradient id="brainGrad" x1="8" y1="8" x2="52" y2="52">
-                                        <stop stop-color="#6C63FF"/>
-                                        <stop offset="1" stop-color="#00D9FF"/>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="brain-nodes">
-                        <div class="node node-1"><span>ML</span></div>
-                        <div class="node node-2"><span>NLP</span></div>
-                        <div class="node node-3"><span>CV</span></div>
-                        <div class="node node-4"><span>DL</span></div>
-                        <div class="node node-5"><span>LLM</span></div>
-                        <div class="node node-6"><span>RL</span></div>
-                    </div>
-                    <div class="brain-connections">
-                        <svg class="connection-lines" viewBox="0 0 400 400">
-                            <line x1="200" y1="200" x2="200" y2="40" class="conn-line"/>
-                            <line x1="200" y1="200" x2="340" y2="110" class="conn-line"/>
-                            <line x1="200" y1="200" x2="340" y2="290" class="conn-line"/>
-                            <line x1="200" y1="200" x2="200" y2="360" class="conn-line"/>
-                            <line x1="200" y1="200" x2="60" y2="290" class="conn-line"/>
-                            <line x1="200" y1="200" x2="60" y2="110" class="conn-line"/>
-                        </svg>
-                    </div>
-                    <div class="data-particles">
-                        <div class="data-particle dp-1"></div>
-                        <div class="data-particle dp-2"></div>
-                        <div class="data-particle dp-3"></div>
-                        <div class="data-particle dp-4"></div>
-                        <div class="data-particle dp-5"></div>
-                        <div class="data-particle dp-6"></div>
-                    </div>
-                </div>
+                <canvas id="heroCanvas" width="500" height="500"></canvas>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -422,24 +376,24 @@
                     <span class="orbit-label">Nexora<br>Core</span>
                 </div>
                 <div class="orbit-ring orbit-ring-1">
-                    <div class="orbit-item" style="--angle: 0deg;"><span>PyTorch</span></div>
-                    <div class="orbit-item" style="--angle: 90deg;"><span>TensorFlow</span></div>
-                    <div class="orbit-item" style="--angle: 180deg;"><span>Python</span></div>
-                    <div class="orbit-item" style="--angle: 270deg;"><span>CUDA</span></div>
+                    <div class="orbit-item"><span>PyTorch</span></div>
+                    <div class="orbit-item"><span>TensorFlow</span></div>
+                    <div class="orbit-item"><span>Python</span></div>
+                    <div class="orbit-item"><span>CUDA</span></div>
                 </div>
                 <div class="orbit-ring orbit-ring-2">
-                    <div class="orbit-item" style="--angle: 45deg;"><span>Azure</span></div>
-                    <div class="orbit-item" style="--angle: 135deg;"><span>Docker</span></div>
-                    <div class="orbit-item" style="--angle: 225deg;"><span>K8s</span></div>
-                    <div class="orbit-item" style="--angle: 315deg;"><span>FastAPI</span></div>
+                    <div class="orbit-item"><span>Azure</span></div>
+                    <div class="orbit-item"><span>Docker</span></div>
+                    <div class="orbit-item"><span>K8s</span></div>
+                    <div class="orbit-item"><span>FastAPI</span></div>
                 </div>
                 <div class="orbit-ring orbit-ring-3">
-                    <div class="orbit-item" style="--angle: 20deg;"><span>GPT</span></div>
-                    <div class="orbit-item" style="--angle: 80deg;"><span>LangChain</span></div>
-                    <div class="orbit-item" style="--angle: 140deg;"><span>HuggingFace</span></div>
-                    <div class="orbit-item" style="--angle: 200deg;"><span>MLflow</span></div>
-                    <div class="orbit-item" style="--angle: 260deg;"><span>Spark</span></div>
-                    <div class="orbit-item" style="--angle: 320deg;"><span>Redis</span></div>
+                    <div class="orbit-item"><span>GPT</span></div>
+                    <div class="orbit-item"><span>LangChain</span></div>
+                    <div class="orbit-item"><span>HuggingFace</span></div>
+                    <div class="orbit-item"><span>MLflow</span></div>
+                    <div class="orbit-item"><span>Spark</span></div>
+                    <div class="orbit-item"><span>Redis</span></div>
                 </div>
             </div>
             <div class="tech-stats">
@@ -834,5 +788,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/hero-animation.js"></script>
 </body>
 </html>
