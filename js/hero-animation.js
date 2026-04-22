@@ -78,13 +78,13 @@
 
     // --- Floating micro-particles ---
     const sparks = [];
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 18; i++) {
         sparks.push({
             angle: Math.random() * Math.PI * 2,
-            radius: 30 + Math.random() * 200,
-            speed: (Math.random() - 0.5) * 0.3,
-            size: Math.random() * 1.5 + 0.3,
-            opacity: Math.random() * 0.3 + 0.05,
+            radius: 60 + Math.random() * 160,
+            speed: (Math.random() - 0.5) * 0.15,
+            size: Math.random() * 1 + 0.2,
+            opacity: Math.random() * 0.12 + 0.03,
             drift: Math.random() * 0.02
         });
     }
@@ -97,8 +97,8 @@
         labelNodes.push({
             text: labels[i],
             angle: angle,
-            radius: 210,
-            size: 11,
+            radius: 215,
+            size: 26,
         });
     }
 
@@ -180,15 +180,15 @@
 
         // Draw nodes
         nodes.forEach(n => {
-            const pulse = 1 + Math.sin(t * 2 + n.pulseOffset) * 0.3;
+            const pulse = 1 + Math.sin(t * 2 + n.pulseOffset) * 0.15;
             const s = n.size * pulse;
 
             // Glow
-            const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, s * 4);
-            glow.addColorStop(0, `rgba(${n.color.r}, ${n.color.g}, ${n.color.b}, ${n.opacity * 0.5})`);
+            const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, s * 3);
+            glow.addColorStop(0, `rgba(${n.color.r}, ${n.color.g}, ${n.color.b}, ${n.opacity * 0.3})`);
             glow.addColorStop(1, `rgba(${n.color.r}, ${n.color.g}, ${n.color.b}, 0)`);
             ctx.fillStyle = glow;
-            ctx.fillRect(n.x - s * 4, n.y - s * 4, s * 8, s * 8);
+            ctx.fillRect(n.x - s * 3, n.y - s * 3, s * 6, s * 6);
 
             // Core dot
             ctx.beginPath();
@@ -198,7 +198,7 @@
         });
 
         // Data pulses
-        if (Math.random() < 0.06) spawnPulse();
+        if (Math.random() < 0.025) spawnPulse();
         for (let i = pulses.length - 1; i >= 0; i--) {
             const p = pulses[i];
             p.progress += p.speed;
@@ -288,24 +288,28 @@
             const y = cy + Math.sin(ln.angle) * (ln.radius + wobble);
 
             // Label background
-            ctx.font = `700 ${ln.size}px 'JetBrains Mono', monospace`;
+            ctx.font = `800 ${ln.size}px 'JetBrains Mono', monospace`;
             const metrics = ctx.measureText(ln.text);
-            const tw = metrics.width + 14;
-            const th = 22;
+            const tw = metrics.width + 34;
+            const th = 42;
 
-            ctx.fillStyle = 'rgba(10, 10, 15, 0.7)';
-            ctx.strokeStyle = 'rgba(108, 99, 255, 0.25)';
-            ctx.lineWidth = 1;
+            // Glowing border — purple glow, cyan stroke to match site theme
+            ctx.shadowColor = 'rgba(0, 217, 255, 0.5)';
+            ctx.shadowBlur = 16;
+            ctx.fillStyle = 'rgba(10, 10, 30, 0.9)';
+            ctx.strokeStyle = `rgba(108, 99, 255, ${0.5 + Math.sin(t * 1.5 + i) * 0.2})`;
+            ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.roundRect(x - tw / 2, y - th / 2, tw, th, 6);
+            ctx.roundRect(x - tw / 2, y - th / 2, tw, th, 10);
             ctx.fill();
             ctx.stroke();
+            ctx.shadowBlur = 0;
 
-            // Label text
-            ctx.fillStyle = `rgba(0, 217, 255, ${0.7 + Math.sin(t + i) * 0.15})`;
+            // Label text — bright white-cyan
+            ctx.fillStyle = `rgba(255, 255, 255, ${0.9 + Math.sin(t + i) * 0.1})`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText(ln.text, x, y);
+            ctx.fillText(ln.text, x, y + 1);
         });
 
         // Outer ring pulse

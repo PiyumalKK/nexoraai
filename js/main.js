@@ -264,8 +264,14 @@
             btn.disabled = true;
             btn.style.opacity = '0.7';
 
-            // Simulate submission (replace with actual API call)
-            setTimeout(() => {
+            // Send via FormSubmit.co
+            const formData = new FormData(contactForm);
+            fetch('https://formsubmit.co/ajax/mailus@nexoraai.me', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
                 btn.innerHTML = `
                     <span>Message Sent!</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -274,15 +280,23 @@
                 `;
                 btn.style.background = 'linear-gradient(135deg, #00FF88, #00D9FF)';
                 btn.style.opacity = '1';
-
                 contactForm.reset();
-
                 setTimeout(() => {
                     btn.innerHTML = originalHTML;
                     btn.disabled = false;
                     btn.style.background = '';
                 }, 3000);
-            }, 1500);
+            })
+            .catch(error => {
+                btn.innerHTML = `<span>Failed — try again</span>`;
+                btn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+                btn.style.opacity = '1';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                    btn.style.background = '';
+                }, 3000);
+            });
         });
     }
 
