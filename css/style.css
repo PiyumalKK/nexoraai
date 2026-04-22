@@ -578,6 +578,11 @@ body:hover .cursor-glow {
     flex-direction: column;
 }
 
+.stat-value {
+    display: flex;
+    align-items: baseline;
+}
+
 .stat-number {
     font-family: var(--font-display);
     font-size: 2rem;
